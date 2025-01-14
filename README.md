@@ -52,8 +52,7 @@ Views: The UI components that display data to users.
 
 ## App Screenshot
 ![singup png](https://github.com/user-attachments/assets/2b885a54-52c4-4307-8be8-dfb3085e2c7c)
-
-<img src="https://github.com/user-attachments/assets/c012f645-a425-43ca-9b3e-0667551a7f32" alt="Splash Screen" width="300" height="450">
+<img src="https://github.com/user-attachments/assets/2b885a54-52c4-4307-8be8-dfb3085e2c7c" alt="singup png" width="300" height="450">
 <img src="https://github.com/user-attachments/assets/91c7016e-a6d6-4855-8304-a2c678affecc" alt="Splash Screen" width="300" height="450">
 <img src="https://github.com/user-attachments/assets/0b357596-2a99-4e36-a97f-247f6b55f424" alt="Onboarding Screen" width="300" height="450">
 <img src="https://github.com/user-attachments/assets/456bffe3-7125-4b38-880c-5f9919104daa" alt="Authentication Screen" width="300" height="450">
