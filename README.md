@@ -38,17 +38,17 @@ The core module contains essential components that are used throughout the appli
 - Widgets: Reusable widgets for UI components.
 - Utils: Utility functions to assist various app functionalities.
 - Features:
-- The features module contains the following main sections:
+ The features module contains the following main sections:
 
-Splash: Launch screen when the app starts.
-Auth: User authentication and login.
-Home: The main screen where users explore movies and series.
-Data:
-Models: Data models for movies and series.
-Repository: Logic for fetching data from the API.
-Presentation:
-Manager: Manages UI state and logic.
-Views: The UI components that display data to users.
+- Splash: Launch screen when the app starts.
+- Auth: User authentication and login.
+- Home: The main screen where users explore movies and series.
+- Data:
+- Models: Data models for movies and series.
+- Repository: Logic for fetching data from the API.
+- Presentation:
+- Manager: Manages UI state and logic.
+- Views: The UI components that display data to users.
 
 ## App Screenshot
 
@@ -76,3 +76,8 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Contact
+For questions, feedback, or collaboration, feel free to reach out:
+- **Email**: mohammed.abduu2020@gmail.com
+
