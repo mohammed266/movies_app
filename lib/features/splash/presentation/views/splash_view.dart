@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import '../../../../core/helpers/shared_pref_helper.dart';
+import '../../../../core/helpers/shared_pref_keys.dart';
 import '../../../../core/resources/colors.dart';
 import '../../../../core/routing/routes.dart';
 import 'widgets/splash_view_body.dart';
@@ -13,7 +13,6 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-
   @override
   void initState() {
     navigateToHome();
@@ -27,9 +26,15 @@ class _SplashViewState extends State<SplashView> {
       body: SplashViewBody(),
     );
   }
-  void navigateToHome(){
-    Future.delayed(const Duration(seconds: 4),
-      () =>  Navigator.pushNamed(context, Routes.kLoginView),
-    );
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 4), () async{
+      final sessionId = await SharedPrefHelper.getString(key: SharedPrefKeys.sessionId);
+      if(sessionId.isNotEmpty){
+        Navigator.pushNamed(context, Routes.kMyHomeView);
+      }else{
+        Navigator.pushNamed(context, Routes.kLoginView);
+      }
+    });
   }
 }

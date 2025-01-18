@@ -12,7 +12,16 @@ class ApiService {
   }
 
   Future<dynamic> post({required String endpoint, dynamic data}) async {
-    final response = await dio.post(endpoint, data: data);
+    final response = await dio.post(
+      endpoint,
+      data: data,
+      options: Options(
+        headers: {
+          "accept" : "application/json",
+          "content-type" : "application/json",
+        },
+      ),
+    );
     return response.data;
   }
 
@@ -33,7 +42,8 @@ class ApiService {
     return response.data;
   }
 
-  Future<dynamic> put({required String endpoint, dynamic queryParameters}) async {
+  Future<dynamic> put(
+      {required String endpoint, dynamic queryParameters}) async {
     final response = await dio.put(endpoint, queryParameters: queryParameters);
     return response.data;
   }
@@ -41,7 +51,7 @@ class ApiService {
   Future<dynamic> delete(
       {required String endpoint, Map<String, dynamic>? queryParameters}) async {
     final response =
-    await dio.delete(endpoint, queryParameters: queryParameters);
+        await dio.delete(endpoint, queryParameters: queryParameters);
     return response.data;
   }
 }

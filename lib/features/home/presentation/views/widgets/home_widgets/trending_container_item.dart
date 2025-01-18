@@ -59,8 +59,7 @@ class TrendingContainerItem extends StatelessWidget {
                       size: 20,
                     ),
                     SizedBox(width: 10.w),
-                    Text(
-                      data.voteAverage.toStringAsFixed(2),
+                    Text("${data.voteAverage?.toStringAsFixed(2) ?? 0.0}",
                       style: Styles.textStyle18,
                     ),
                   ],

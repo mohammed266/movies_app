@@ -20,10 +20,10 @@ class Movie {
   final bool? adult; // Marked as nullable to handle null
   final String originalLanguage;
   final List<int> genreIds;
-  final double popularity;
+  final double? popularity;
   final String releaseDate;
   final bool? video; // Marked as nullable to handle null
-  final double voteAverage;
+  final double? voteAverage;
   final int voteCount;
 
   Movie({
@@ -37,10 +37,10 @@ class Movie {
     this.adult, // Optional, as it can be null
     required this.originalLanguage,
     required this.genreIds,
-    required this.popularity,
+    this.popularity, // Nullable
     required this.releaseDate,
     this.video, // Optional, as it can be null
-    required this.voteAverage,
+    this.voteAverage, // Nullable
     required this.voteCount,
   });
 
@@ -56,10 +56,10 @@ class Movie {
       adult: json['adult'] as bool?, // Cast to bool? to handle null values
       originalLanguage: json['original_language'] ?? '',
       genreIds: List<int>.from(json['genre_ids'] ?? []),
-      popularity: json['popularity'].toDouble(),
+      popularity: json['popularity'] != null ? (json['popularity'] as num).toDouble() : 0.0,
       releaseDate: json['release_date'] ?? '',
       video: json['video'] as bool?, // Cast to bool? to handle null values
-      voteAverage: json['vote_average'].toDouble(),
+      voteAverage: json['vote_average'] != null ? (json['vote_average'] as num).toDouble() : 0.0,
       voteCount: json['vote_count'],
     );
   }

@@ -47,6 +47,7 @@ dependencies:
   youtube_player_flutter: ^9.1.1
   sqflite: ^2.4.1
   path:
+  fluttertoast: ^8.2.10
 
 
 

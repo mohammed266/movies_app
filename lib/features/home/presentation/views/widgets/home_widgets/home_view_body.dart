@@ -6,7 +6,8 @@ import 'sliver_app_bar_title.dart';
 import 'tab_bar_item.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, required this.scaffoldKey});
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
         slivers: [
           SliverAppBar(
             backgroundColor: const Color.fromRGBO(18, 18, 18, 0.9),
-            title: const SliverAppBarTitle(),
+            title: SliverAppBarTitle(scaffoldKey: scaffoldKey),
             centerTitle: true,
             automaticallyImplyLeading: false,
             toolbarHeight: 60.h,

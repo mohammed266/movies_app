@@ -7,20 +7,32 @@ class CustomTextField extends StatelessWidget {
     this.onChange,
     this.hintText,
     this.obscureText = false,
+    this.controller,
+    this.suffixIcon,
+    this.validator,
+    this.autovalidateMode,
   });
   final String? hintText;
   final Function(String)? onChange;
   final bool obscureText;
   final TextInputType? keyboardType;
+  final TextEditingController? controller;
+  final Widget? suffixIcon;
+  final String? Function(String?)? validator;
+  final AutovalidateMode? autovalidateMode;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
+      autovalidateMode: autovalidateMode,
+      controller: controller,
       obscureText: obscureText,
       onChanged: onChange,
       keyboardType: keyboardType,
       decoration: InputDecoration(
         // hintStyle: const TextStyle(color: Colors.white),
         hintText: hintText,
+        suffixIcon: suffixIcon,
         // focusedBorder: OutlineInputBorder(
         //   borderRadius: BorderRadius.circular(15),
         // ),

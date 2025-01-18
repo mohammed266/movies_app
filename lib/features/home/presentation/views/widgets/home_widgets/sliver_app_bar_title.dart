@@ -6,7 +6,8 @@ import '../../../../../../core/resources/styles.dart';
 import '../../../manager/trending_movies_cubit/trending_movies_cubit.dart';
 
 class SliverAppBarTitle extends StatefulWidget {
-  const SliverAppBarTitle({super.key});
+  const SliverAppBarTitle({super.key, required this.scaffoldKey});
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   State<SliverAppBarTitle> createState() => _SliverAppBarTitleState();
@@ -25,8 +26,16 @@ class _SliverAppBarTitleState extends State<SliverAppBarTitle> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
+        IconButton(
+          icon: const Icon(Icons.menu,size: 30),
+          onPressed: () {
+            // Open the drawer when the button is pressed.
+            widget.scaffoldKey.currentState?.openDrawer();
+          },
+        ),
+        SizedBox(width: 50.w),
         Text(
           'Trending' ' 🔥',
           style: Styles.textStyle16,

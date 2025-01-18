@@ -1,11 +1,26 @@
-import '../../features/auth/data/models/login_request.dart';
 
 class ApiEndpoints {
   static const String baseUrl = 'https://api.themoviedb.org/3/';
   static const String apiKey = 'd5542daf3eb4561723e655ffbce3aba4';
+
+
   // auth
 
+  static String getRequestToken() {
+    return 'authentication/token/new?api_key=$apiKey';
+  }
 
+  static String validateWithLogin() {
+    return 'authentication/token/validate_with_login?api_key=$apiKey';
+  }
+
+  static String createSession() {
+    return 'authentication/session/new?api_key=$apiKey';
+  }
+
+  static String deleteSession() {
+    return 'authentication/session?api_key=$apiKey';
+  }
   //--------------------------------------------------
 
   // home
