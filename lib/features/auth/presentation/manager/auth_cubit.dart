@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/helpers/shared_pref_helper.dart';
-import '../../../../core/helpers/shared_pref_keys.dart';
 import '../../data/repos/auth_repo.dart';
 part 'auth_state.dart';
 
@@ -25,9 +24,7 @@ class AuthCubit extends Cubit<AuthState> {
     result.fold(
           (failure) => emit(LogoutFailure(failure.message)),
           (success){
-            SharedPrefHelper.removeData(key: SharedPrefKeys.sessionId);
-            SharedPrefHelper.removeData(key: SharedPrefKeys.userName);
-            SharedPrefHelper.removeData(key: SharedPrefKeys.pass);
+            SharedPrefHelper.deleteAllSecuredString();
             emit(LogoutSuccess());
           }
     );

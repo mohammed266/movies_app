@@ -33,7 +33,7 @@ class AuthRepoImpl implements AuthRepo {
       );
       final String sessionId = sessionResponse['session_id'];
       if (sessionId.isNotEmpty) {
-        await SharedPrefHelper.setData(
+        await SharedPrefHelper.setSecuredString(
             key: SharedPrefKeys.sessionId, value: sessionId);
         log(sessionId);
       }
@@ -47,9 +47,9 @@ class AuthRepoImpl implements AuthRepo {
   Future<Either<Failure, bool>> deleteSession(
       Map<String, dynamic> requestBody) async {
     try {
-      final String sessionId =
-          await SharedPrefHelper.getString(key: SharedPrefKeys.sessionId);
-      final response = await apiService.delete(
+      final String sessionId = await SharedPrefHelper.getSecuredString(
+          key: SharedPrefKeys.sessionId);
+      await apiService.delete(
         endpoint: ApiEndpoints.deleteSession(),
         queryParameters: {
           'username': requestBody['username'],

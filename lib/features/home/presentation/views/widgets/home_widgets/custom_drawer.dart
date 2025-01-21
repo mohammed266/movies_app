@@ -43,10 +43,10 @@ class CustomDrawer extends StatelessWidget {
               },
               child: ListTile(
                 onTap: () async {
-                  final userName = await SharedPrefHelper.getString(
+                  final userName = await SharedPrefHelper.getSecuredString(
                       key: SharedPrefKeys.userName);
                   final pass =
-                  await SharedPrefHelper.getString(key: SharedPrefKeys.pass);
+                  await SharedPrefHelper.getSecuredString(key: SharedPrefKeys.pass);
                   log(userName);
                   final requestBody = {
                     'username': userName,

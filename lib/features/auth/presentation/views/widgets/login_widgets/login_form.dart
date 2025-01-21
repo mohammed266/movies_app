@@ -87,10 +87,10 @@ class _LoginFormState extends State<LoginForm> {
                       'username': userNameController.text,
                       'password': passwordController.text,
                     };
-                    SharedPrefHelper.setData(
+                    SharedPrefHelper.setSecuredString(
                         key: SharedPrefKeys.userName,
                         value: userNameController.text);
-                    SharedPrefHelper.setData(
+                    SharedPrefHelper.setSecuredString(
                         key: SharedPrefKeys.pass,
                         value: passwordController.text);
                     context.read<AuthCubit>().createSession(requestBody);

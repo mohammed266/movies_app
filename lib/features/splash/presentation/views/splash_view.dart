@@ -29,9 +29,9 @@ class _SplashViewState extends State<SplashView> {
 
   void navigateToHome() {
     Future.delayed(const Duration(seconds: 4), () async{
-      final sessionId = await SharedPrefHelper.getString(key: SharedPrefKeys.sessionId);
-      if(sessionId.isNotEmpty){
-        Navigator.pushNamed(context, Routes.kMyHomeView);
+      final sessionId = await SharedPrefHelper.getSecuredString(key: SharedPrefKeys.sessionId);
+      if(sessionId != null){
+       Navigator.pushNamed(context, Routes.kMyHomeView);
       }else{
         Navigator.pushNamed(context, Routes.kLoginView);
       }

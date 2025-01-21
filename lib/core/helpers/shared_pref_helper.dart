@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPrefHelper {
@@ -60,5 +61,26 @@ class SharedPrefHelper {
     log('SharedPrefHelper : getString with key : $key');
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(key) ?? '';
+  }
+
+  /// set secured string
+  static setSecuredString({required String key, required value})async{
+    log("setSecuredString : setSecuredString with key : $key and value : $value");
+    const flutterSecureStorage = FlutterSecureStorage();
+   return await flutterSecureStorage.write(key: key, value: value);
+  }
+
+  /// get secured string
+  static getSecuredString({required String? key})async{
+    log("getSecuredString : getSecuredString with key : $key");
+    const flutterSecureStorage = FlutterSecureStorage();
+   return await flutterSecureStorage.read(key: key ?? '');
+  }
+
+  /// delete All secured string
+  static deleteAllSecuredString()async{
+    log("deleteAllSecuredString");
+    const flutterSecureStorage = FlutterSecureStorage();
+    return await flutterSecureStorage.deleteAll();
   }
 }
